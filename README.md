@@ -13,9 +13,9 @@ There are three algorithms I've written for the purpose of evaluation:
 ### Standard Shuffle
 This is the algorithm described earlier. The deck is simply delt out into two piles, and then the first pile is placed atop the second. It is the simplest reasonable deterministic stateless shuffle I am aware of.
 #### Example
-Deck: 0123456789ABCDEF
-Pile1: ECA86420
-Pile2: FDB97531
+Deck: 0123456789ABCDEF  
+Pile1: ECA86420  
+Pile2: FDB97531  
 Result: ECA86420FDB97531
 #### Performance
 Repeats after 8 applications for a deck of size 16.
@@ -23,11 +23,11 @@ Repeats after 8 applications for a deck of size 16.
 ### Square-root Shuffle
 This algorithm is the same as the standard shuffle, except the N cards are delt into sqrt(N) piles rather than just two. This means that the number of the cards in each pile will be approximately equal to the number of piles.
 #### Example
-Deck: 0123456789ABCDEF
-Pile1: C840
-Pile2: D951
-Pile3: EA62
-Pile4: FB73
+Deck: 0123456789ABCDEF  
+Pile1: C840  
+Pile2: D951  
+Pile3: EA62  
+Pile4: FB73  
 Result: C840D951EA62FB73
 #### Performance
 Repeats after 4 applications for a deck of size 16.
@@ -35,13 +35,13 @@ Repeats after 4 applications for a deck of size 16.
 ### Triangle Shuffle
 Similar to the standard shuffle, but starts with a single pile and adds a new pile with each iteration. The cards are added to the piles in reverse order, so the last card in each iteration ends up on the first pile.
 #### Example
-Deck: 0123456789ABCDEF
-Pile1: E9520
-Pile2: D841
-Pile3: C73
-Pile4: B6
-Pile5: A
-Pile6: F
+Deck: 0123456789ABCDEF  
+Pile1: E9520  
+Pile2: D841  
+Pile3: C73  
+Pile4: B6  
+Pile5: A  
+Pile6: F  
 Result: E9520D841C73B6AF
 #### Performance
 Repeats after 10 applications for a deck of size 16.
@@ -52,7 +52,7 @@ There are two cases worth considering as a basis for comparison:
 ### Baseline
 A shuffle where the top card is placed on the bottom. This is obviously a bad shuffle.
 #### Example
-Deck: 0123456789ABCDEF
+Deck: 0123456789ABCDEF  
 Result: 123456789ABCDEF0
 #### Performance
 Repeats after 16 applications for a deck of size 16.
@@ -60,7 +60,7 @@ Repeats after 16 applications for a deck of size 16.
 ### Ideal
 A hypothetical perfect shuffle should iterate through every possible permutation of the cards.
 #### Example
-Deck: 0123456789ABCDEF
+Deck: 0123456789ABCDEF  
 Result: 0123456789ABCDFE
 #### Performance
 Repeats after 20922789888000 (16P16) applications for a deck of size 16.
@@ -71,11 +71,11 @@ Despite producing reasonably random looking results after a single application, 
 ### Coprime Partition Shuffle
 Divide the deck into partitions of sizes that are coprime. On each iteration perform the baseline shuffle on each partition.
 #### Example
-Deck: 0123456789ABCDEF
-Pile1: 01
-Pile2: 234
-Pile3: 56789
-Pile4: ABCDEF
+Deck: 0123456789ABCDEF  
+Pile1: 01  
+Pile2: 234  
+Pile3: 56789  
+Pile4: ABCDEF  
 Result: 1034267895BCDEFA
 #### Performance
 Repeats after 30 (2×3×5) applications for a deck of size 16.
